@@ -1,0 +1,255 @@
+type Condition @entity {
+  id: ID!
+  oracle: Bytes!
+  questionId: Bytes!
+  outcomeSlotCount: Int!
+  resolutionTimestamp: BigInt
+  payouts: [BigDecimal!]
+  scalarLow: BigInt
+  scalarHigh: BigInt
+  fixedProductMarketMakers: [FixedProductMarketMaker!]!
+    @derivedFrom(field: "conditions")
+}
+
+type FixedProductMarketMaker @entity {
+  id: ID!
+
+  creator: Bytes!
+  creationTimestamp: BigInt!
+
+  collateralToken: Bytes!
+  conditions: [Condition!]!
+  fee: BigInt!
+
+  collateralVolume: BigInt!
+  scaledCollateralVolume: BigDecimal!
+  usdVolume: BigDecimal!
+  outcomeTokenAmounts: [BigInt!]!
+  outcomeTokenMarginalPrices: [BigDecimal!]
+  outcomeSlotCount: Int
+  liquidityMeasure: BigInt!
+  scaledLiquidityMeasure: BigDecimal!
+  usdLiquidityMeasure: BigDecimal!
+  liquidityParameter: BigInt!
+  scaledLiquidityParameter: BigDecimal!
+  usdLiquidityParameter: BigDecimal!
+
+  lastActiveDay: BigInt!
+  lastActiveHour: BigInt!
+  collateralVolumeBeforeLastActiveDayByHour: [BigInt!]!
+  usdVolumeBeforeLastActiveDayByHour: [BigDecimal!]!
+
+  runningDailyVolume: BigInt!
+  scaledRunningDailyVolume: BigDecimal!
+  usdRunningDailyVolume: BigDecimal!
+  lastActiveDayAndRunningDailyVolume: BigInt!
+  lastActiveDayAndScaledRunningDailyVolume: BigInt!
+
+  runningDailyVolumeByHour: [BigInt!]!
+  usdRunningDailyVolumeByHour: [BigDecimal!]!
+  sort24HourVolume0: BigDecimal!
+  sort24HourVolume1: BigDecimal!
+  sort24HourVolume2: BigDecimal!
+  sort24HourVolume3: BigDecimal!
+  sort24HourVolume4: BigDecimal!
+  sort24HourVolume5: BigDecimal!
+  sort24HourVolume6: BigDecimal!
+  sort24HourVolume7: BigDecimal!
+  sort24HourVolume8: BigDecimal!
+  sort24HourVolume9: BigDecimal!
+  sort24HourVolume10: BigDecimal!
+  sort24HourVolume11: BigDecimal!
+  sort24HourVolume12: BigDecimal!
+  sort24HourVolume13: BigDecimal!
+  sort24HourVolume14: BigDecimal!
+  sort24HourVolume15: BigDecimal!
+  sort24HourVolume16: BigDecimal!
+  sort24HourVolume17: BigDecimal!
+  sort24HourVolume18: BigDecimal!
+  sort24HourVolume19: BigDecimal!
+  sort24HourVolume20: BigDecimal!
+  sort24HourVolume21: BigDecimal!
+  sort24HourVolume22: BigDecimal!
+  sort24HourVolume23: BigDecimal!
+
+  indexedOnQuestion: Boolean!
+
+  # copy of conditions' content if it is a 1-large array
+  condition: Condition
+  scalarLow: BigInt
+  scalarHigh: BigInt
+  # lifted from condition's question
+  templateId: BigInt
+  data: String
+  title: String
+  outcomes: [String!]
+  category: String
+  language: String
+  arbitrator: Bytes
+  openingTimestamp: BigInt
+  timeout: BigInt
+  # pushed from condition & question if this fpmm one of the first
+  resolutionTimestamp: BigInt
+  payouts: [BigDecimal!]
+  currentAnswer: Bytes
+  currentAnswerBond: BigInt
+  currentAnswerTimestamp: BigInt
+  isPendingArbitration: Boolean
+  arbitrationOccurred: Boolean
+  answerFinalizedTimestamp: BigInt
+
+  poolMembers: [FpmmPoolMembership!] @derivedFrom(field: "pool")
+  participants: [FpmmParticipation!] @derivedFrom(field: "fpmm")
+}
+
+type FpmmPoolMembership @entity {
+  id: ID!
+  pool: FixedProductMarketMaker!
+  funder: Account!
+  amount: BigInt!
+}
+
+type ShareBalance @entity {
+  id: ID!
+  funder: String!
+  condition: Condition!
+  balanceYes: BigInt!
+  balanceNo: BigInt!
+}
+
+type FpmmParticipation @entity {
+  id: ID!
+  fpmm: FixedProductMarketMaker!
+  participant: Account!
+
+  # lifted from fpmm
+  creationTimestamp: BigInt!
+  collateralToken: Bytes!
+  fee: BigInt!
+  title: String
+
+  # lifted from fpmm's condition's question
+  category: String
+  language: String
+  arbitrator: Bytes
+  openingTimestamp: BigInt
+  timeout: BigInt
+}
+
+enum TradeType {
+  Buy
+  Sell
+}
+
+enum LiquidityType {
+  Add
+  Remove
+}
+
+enum TransactionType {
+  Buy
+  Sell
+  Add
+  Remove
+  Redeem
+}
+
+enum FpmmType {
+  Trade
+  Liquidity
+}
+
+type FpmmTrade @entity {
+  id: ID!
+  fpmm: FixedProductMarketMaker!
+  fpmmId: String!
+
+  # lifted from fpmm
+  title: String
+  collateralToken: Bytes!
+  outcomeTokenMarginalPrice: BigDecimal!
+  oldOutcomeTokenMarginalPrice: BigDecimal!
+
+  type: TradeType!
+  creator: Account!
+  creatorId: String!
+  creationTimestamp: BigInt!
+  collateralAmount: BigInt!
+  collateralAmountUSD: BigDecimal!
+  feeAmount: BigInt!
+  outcomeIndex: BigInt!
+  outcomeTokensTraded: BigInt!
+  transactionHash: Bytes!
+}
+
+type FpmmLiquidity @entity {
+  id: ID!
+  fpmm: FixedProductMarketMaker!
+  type: LiquidityType!
+  outcomeTokenAmounts: [BigInt!]
+  collateralTokenAmount: BigInt!
+  additionalLiquidityParameter: BigInt!
+  funder: Account!
+  sharesAmount: BigInt!
+  collateralRemovedFromFeePool: BigInt
+  creationTimestamp: BigInt!
+  transactionHash: Bytes!
+  additionalSharesCost: BigInt!
+}
+
+type FpmmTransaction @entity {
+  id: ID!
+  fpmm: FixedProductMarketMaker!
+  user: Account!
+  fpmmType: FpmmType!
+  transactionType: TransactionType!
+  collateralTokenAmount: BigInt!
+  sharesOrPoolTokenAmount: BigInt!
+  creationTimestamp: BigInt!
+  transactionHash: Bytes!
+  additionalSharesCost: BigInt
+  outcomeTokenMarginalPrices: [BigDecimal!]
+  fpmmId: ID!
+}
+
+type Account @entity {
+  id: ID!
+  tradeNonce: BigInt!
+  fpmmPoolMemberships: [FpmmPoolMembership!] @derivedFrom(field: "funder")
+  fpmmParticipations: [FpmmParticipation!] @derivedFrom(field: "participant")
+}
+
+type Token @entity {
+  id: ID!
+  scale: BigInt!
+  ethPerToken: BigDecimal
+}
+
+type UniswapPair @entity {
+  id: ID!
+  token0: Token!
+  token1: Token!
+  reserve0: BigInt!
+  reserve1: BigInt!
+}
+
+type Global @entity {
+  # ID is empty string, this is a singleton
+  id: ID!
+  numConditions: Int!
+  numOpenConditions: Int!
+  numClosedConditions: Int!
+
+  usdPerEth: BigDecimal
+  usdVolume: BigDecimal!
+}
+
+type _Schema_
+  @fulltext(
+    name: "marketSearch"
+    language: en
+    algorithm: rank
+    include: [
+      { entity: "FixedProductMarketMaker", fields: [{ name: "title" }] }
+    ]
+  )

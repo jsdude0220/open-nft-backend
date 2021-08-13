@@ -1,0 +1,134 @@
+{
+  "ConditionalTokens": {
+    "1": {
+      "address": "0xC59b0e4De5F1248C1140964E0fF287B192407E0C",
+      "transactionHash": "0x7e10ef2a2116a46153d52ad50d6428fa9f4b19c36c803ba2f707cd70b7434348"
+    },
+    "4": {
+      "address": "0x36bede640D19981A82090519bC1626249984c908",
+      "transactionHash": "0x7db87634594160ae8acc745d38329f6e8902ae8cd98a9f1b10afb606b41c436b"
+    },
+    "77": {
+      "address": "0x0Db8C35045a830DC7F2A4dd87ef90e7A9Cd0534f",
+      "transactionHash": "0xff1569e40d05a9d795e5722edcfc5d1368014eb2eb466056fa4359aa7b3a0368"
+    },
+    "100": {
+      "address": "0xCeAfDD6bc0bEF976fdCd1112955828E00543c0Ce",
+      "transactionHash": "0x8135a49a80eb20e8932bf8b39a55e34229f992c298c4cdfbb62feffa088001c3"
+    },
+    "80001": {
+      "address": "0x90650Ad42479d4646CE34680F546FEfB1223d497",
+      "transactionHash": "0x75c76323f371e5abc30869b8b52a7bc055b73420d2fd84d529f16a96754fe3a5"
+    }
+  },
+  "FPMMDeterministicFactory": {
+    "1": {
+      "address": "0x89023DEb1d9a9a62fF3A5ca8F23Be8d87A576220",
+      "transactionHash": "0x3dcf6344be196cb8a3bf20d4680ee911bc1f200cc997c2c1c0c1c0ef3c9bc7f2"
+    },
+    "4": {
+      "address": "0x0fB4340432e56c014fa96286de17222822a9281b",
+      "transactionHash": "0xf7b283543fe32ccf311b932091b433a5685ca34e2f81210f8f543a18e6b80881"
+    },
+    "77": {
+      "address": "0x2fb8cc057946DCFA32D8eA8115A1Dd630f6efea5",
+      "transactionHash": "0xe0361da346381cd080b2ca6b73fdc10c9da55a3168f6a2e299adc115a64ea86b"
+    },
+    "100": {
+      "address": "0x9083A2B699c0a4AD06F63580BDE2635d26a3eeF0",
+      "transactionHash": "0x0aac0735896301ab14f8dbe6d35e112977f6507de752c54f1668fd09dcd43f61"
+    },
+    "80001": {
+      "address": "0xDDCF25c28691d87E3a47BEF0d81528364a145675",
+      "transactionHash": "0x6bc22f4fd783a375b82be9d03ec7b9662f6dfc5a7acc059b2c78dbe78f07c720"
+    }
+  },
+  "UniswapV2Factory": {
+    "1": {
+      "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+      "transactionHash": "0xc31d7e7e85cab1d38ce1b8ac17e821ccd47dbde00f9d57f2bd8613bff9428396"
+    },
+    "4": {
+      "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+      "transactionHash": "0xbbdb9c4754e69ce864b9d2e2420385cd1f10d584a416be52b021cff0f49f3c6f"
+    },
+    "77": {
+      "address": "0x985B5011c850C27ee1cE0a0982B8E9c230596960",
+      "transactionHash": "0x8dc8fb74638c3ad27ae356e1a76786580d814b5fe5ea29e6f9f2106c4ae3481b"
+    },
+    "100": {
+      "address": "0xA818b4F111Ccac7AA31D0BCc0806d64F2E0737D7",
+      "transactionHash": "0x446de52c460bed3f49a4342eab247bb4b2fe2993962c284fb9bc14a983c7a3d4"
+    },
+    "80001": {
+      "address": "0x3a97CCbD5FC673E4498Bf8e6B1be6B23a5760838",
+      "transactionHash": "0xe605d7067008c1727dee369112cb72c5fcea61ad9b5feb6fa7bf460124d8ddd3"
+    }
+  },
+  "WETH9": {
+    "1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "transactionHash": "0xb95343413e459a0f97461812111254163ae53467855c0d73e0f1e7c5b8442fa3"
+    },
+    "4": {
+      "address": "0xc778417E063141139Fce010982780140Aa0cD5Ab",
+      "transactionHash": "0x7bc8e85f99556aa23a41dd3c107e92ec76f057e4cea39f376ffb1b15d514b11f"
+    },
+    "77": {
+      "address": "0x0000000000000000000000000000000000000000",
+      "transactionHash": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    "100": {
+      "address": "0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1",
+      "transactionHash": "0xf93eca2bae09dfcecb0c9b70198f540ae33ab1f8643ff8f7694842a0d58c384e"
+    },
+    "80001": {
+      "address": "0x226fF189DF85727c527E6e0d60e90a85781f751C",
+      "transactionHash": "0xbd9fd0ceacef08053671aa2046ce745019ac564da0381c783945186e44b2b3d2"
+    }
+  },
+  "DAI": {
+    "1": {
+      "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "transactionHash": "0x495402df7d45fe36329b0bd94487f49baee62026d50f654600f6771bd2a596ab"
+    },
+    "4": {
+      "address": "0x5592EC0cfb4dbc12D3aB100b257153436a1f0FEa",
+      "transactionHash": "0x27c434cf56a44547a4a638df85745b62af0894ad1f857d765e1c0f256ae0d7d3"
+    },
+    "77": {
+      "address": "0x285bF95B5907E74bb94eCc85677B4768F9A2040B",
+      "transactionHash": "0x3da31dbf618aa2a0dffaafae1b0c83e338b745c987f51bbf3d8d1fe246c6a38b"
+    },
+    "100": {
+      "address": "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d",
+      "transactionHash": "0x0c2632fc6588506d3a6a1cdb10140bb9281f898f6c1b532728409c623ca8432b"
+    },
+    "80001": {
+      "address": "0x3e1Cd313DdB389cE8636286DE79C06315e8b1405",
+      "transactionHash": "0x10d73f35b892c5d284566d572e362c7285a9daef2d67f9e1e1b152d8f7b73439"
+    }
+  },
+  "USDC": {
+    "1": {
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "transactionHash": "0xe7e0fe390354509cd08c9a0168536938600ddc552b3f7cb96030ebef62e75895"
+    },
+    "4": {
+      "address": "0xc7AD46e0b8a400Bb3C915120d284AafbA8fc4735",
+      "transactionHash": "0xe887a213e889941abd1fe3cf577f9ec5b0c8b81e828f37226cf977ad0151f88a"
+    },
+    "77": {
+      "address": "0x77fE6614775129c2a4afDe0a7859d78110c2b4a1",
+      "transactionHash": "0xc6a1212a0c917f5d9dc13346cca518c1699e443b8b173a8a6b75fdaa55f87373"
+    },
+    "100": {
+      "address": "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83",
+      "transactionHash": "0x8add438e10e3bad5118bd901347494d739cdfbde0176f8836c69d4b24ffbf5eb"
+    },
+    "80001": {
+      "address": "0xcAC7af235F9281f1e9687D3e0e18B5620f5bEd11",
+      "transactionHash": "0x7de59c7be86ae88a67444f945e19921dff5f6ed344f0ed6863de844752d850f1"
+    }
+  }
+}
